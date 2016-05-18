@@ -9,6 +9,8 @@ CLASSPATH=$(cat .classpath)
 
 # Clean slate
 rm -rf $BUILD/*
+# Not sure why this keeps getting generated
+rm -f tests/RunTests.class
 
 # Compile Oolong source files to JVM class files
 for oolong_file in $SRC/*.j
