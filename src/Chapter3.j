@@ -91,4 +91,441 @@
   ireturn
 .end method
 
+;; Given an integer, return how many 1's are in
+;; its binary representation.
+;;
+;; 0 x
+.method static exercise3_6(I)I
+  ;; .limit stack 1
+
+  ;; This is what we increment
+  ;; for our final answer
+  iconst_0    ; put 0 on stack
+  istore_1    ; put 0 (acc) in slot 1
+
+  ;; Iteration 0
+  iload_0     ; put x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+
+  ;; This works because 1 & 1 => 1
+  ;; Whereas            0 & 1 => 0
+  ;; So adds either 0 (nay) or 1 (yea)
+  ;; to the accumulator.
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 1
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 2
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 3
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 4
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 5
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 6
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 7
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 8
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 9
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 10
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 11
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 12
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 13
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 14
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 15
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 16
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 17
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 18
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 19
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 20
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 21
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 22
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 23
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 24
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 25
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 26
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 27
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 28
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 29
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 30
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  ;; Iteration 31
+  iload_0     ; shifted x on stack
+  iconst_1    ; put 1 on stack
+  iand        ; x & 1
+  iload_1     ; put acc on stack
+  iadd        ; (x & 1) + acc
+  istore_1    ; store acc
+
+  iload_0     ; put x back on stack
+  iconst_1    ; going to shift right 1
+  ishr        ; x >> 1
+  istore_0    ; store (x >> 1)
+
+  iload_1        ; put acc on stack
+  ireturn        ; return acc
+.end method
+
 .end class
