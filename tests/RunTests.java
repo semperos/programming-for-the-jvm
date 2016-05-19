@@ -20,10 +20,39 @@ public class RunTests {
 
     @Test
     public void testChapter3_6() {
-        assertEquals(Chapter3.exercise3_6(1), 1);
-        assertEquals(Chapter3.exercise3_6(2), 1);
-        assertEquals(Chapter3.exercise3_6(4), 1);
-        assertEquals(Chapter3.exercise3_6(3), 2);
-        assertEquals(Chapter3.exercise3_6(2147483647), 31);
+        assertEquals(Chapter3.exercise3_6_num_of_ones_binary(1), 1);
+        assertEquals(Chapter3.exercise3_6_num_of_ones_binary(2), 1);
+        assertEquals(Chapter3.exercise3_6_num_of_ones_binary(4), 1);
+        assertEquals(Chapter3.exercise3_6_num_of_ones_binary(3), 2);
+        assertEquals(Chapter3.exercise3_6_num_of_ones_binary(2147483647), 31);
+    }
+
+    @Test
+    public void testChapter3_7_barrel_shift_right() {
+        // 0000 0000 0000 0000 0000 0000 0000 0010
+        // 0000 0000 0000 0000 0000 0000 0000 0001
+        assertEquals(Chapter3.exercise3_7_barrel_shift_right(2), 1);
+        // 0000 0000 0000 0000 0000 0000 0000 0001
+        // 1000 0000 0000 0000 0000 0000 0000 0000
+        assertEquals(Chapter3.exercise3_7_barrel_shift_right(1), -2147483648);
+        // 0000 0000 0000 0000 0000 0000 0000 0011
+        // 1000 0000 0000 0000 0000 0000 0000 0001
+        assertEquals(Chapter3.exercise3_7_barrel_shift_right(3), -2147483647);
+    }
+
+    // TODO Fix implementation
+    // @Test
+    // public void testChapter3_7_barrel_shift_left() {
+    //     // 1000 0000 0000 0000 0000 0000 0000 0000
+    //     // 0000 0000 0000 0000 0000 0000 0000 0001
+    //     assertEquals(Chapter3.exercise3_7_barrel_shift_left(-1), 3);
+    // }
+
+    @Test
+    public void testChapter3_9_stack_manip() {
+        // Just needs to run to compile to validate that
+        // the .limit settings were correct in the Chapter.j source.
+        Object o = new Object();
+        assertEquals(Chapter3.exercise3_9_stack_manip(o, o, o, o, o, o, o, o, o, 42), 419958);
     }
 }

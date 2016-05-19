@@ -95,7 +95,7 @@
 ;; its binary representation.
 ;;
 ;; 0 x
-.method static exercise3_6(I)I
+.method static exercise3_6_num_of_ones_binary(I)I
   ;; .limit stack 1
 
   ;; This is what we increment
@@ -526,6 +526,77 @@
 
   iload_1        ; put acc on stack
   ireturn        ; return acc
+.end method
+
+;; Barrel shift right
+;; 0110 0111 => 1011 0011
+.method static exercise3_7_barrel_shift_right(I)I
+  iload_0      ; x on stack
+  iconst_1     ; 1 on stack
+  iand         ; x & 1
+
+  bipush 31    ; 31 on stack
+  ishl         ; y = (x & 1) << 31 == 0 or -2,147,483,648
+
+  iload_0      ; x back on stack
+  iconst_1     ; 1 on stack
+  iushr        ; x >>> 1
+               ; By forcing 0 in leftmost bit, we can now use
+               ; knowledge of previous rightmost to set it correctly.
+
+  ior          ; Set leftmost bit based on y (see above)
+
+  ireturn
+.end method
+
+;; TODO Implement correctly
+;; Barrel shift left
+;; 1110 0110 => 1100 1101
+;; 0000 0001 => 0000 0010
+;; 1000 0000 => 0000 0001
+;; .method static exercise3_7_barrel_shift_left(I)I
+;;   ; Determine leftmost bit
+;;   iload_0      ; x on stack ;  1000 0000 0000 0000 0000 0000 0000 0000
+;;   iconst_m1    ; -1 on stack ; 1000 0000 0000 0000 0000 0000 0000 0000
+;;   iand         ; determine leftmost bit ; 1000 0000 0000 0000 0000 0000 0000 0000
+;;   istore_1     ; put leftmost-bit-determiner in slot 1
+
+;;   ; Determine leftmost->1 bit
+;;   iload_0      ; x on stack again
+;;   iconst_m1    ; -1 on stack
+;;   iushr        ; 0100 ...
+
+
+;;   ; Mask to set rightmost bit correctly
+;;   bipush 31    ; put 31 on stack
+;;   iushr        ; (x & -1) >>> 31 == 0 or 1 ; 0000 0000 0000 0000 0000 0000 0000 0001
+
+;;   ; Shift
+;;   iload_0      ; x back on stack ; 1000 0000 0000 0000 0000 0000 0000 0000
+;;   iconst_1     ; 1 on stack      ; 0000 0000 0000 0000 0000 0000 0000 0001
+;;   ishl         ; x << 1          ; 1000 0000 0000 0000 0000 0000 0000 0000
+
+;;   ; Set rightmost bit
+;;   ior
+
+;;   ireturn
+;; .end method
+
+.method static exercise3_9_stack_manip(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;I)I
+  .limit stack 3
+  .limit locals 10  ; Book says 9, but `iload 9` means there are 10 locals
+  aload_3       ; stack = 1
+  iload 9       ; stack = 2
+  swap          ; stack = 2
+  dup           ; stack = 3
+  astore_2      ; stack = 2
+  pop           ; stack = 1     ; otherwise we try to multiply a reference with an integer
+  sipush 99     ; stack = 2
+  bipush 101    ; stack = 3     ; ✓ was 4, but then the code doesn't run, so put `pop` above
+  imul          ; stack = 3
+  imul          ; stack = 2
+
+  ireturn
 .end method
 
 .end class
