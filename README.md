@@ -9,3 +9,7 @@ I've added the `src` directory, in which I'm keeping my Oolong source, as well a
 To run tests, invoke `./test.sh`. This will compile all Oolong and Java files and run all the code, primarily as tests written with JUnit for nice reporting.
 
 See `README.txt.orig` for the original README.
+
+## Editor Support
+
+I recommend installing support in your editor for the Jasmin bytecode assembly language, which is quite similar to Oolong. There is an unsupported-but-better-than-nothing Emacs mode available by Neil W. Van Dyke via ELPA.
