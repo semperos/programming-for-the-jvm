@@ -55,4 +55,26 @@ public class RunTests {
         Object o = new Object();
         assertEquals(Chapter3.exercise3_9_stack_manip(o, o, o, o, o, o, o, o, o, 42), 419958);
     }
+
+    @Test
+    public void testChapter4_1_dinosaur() {
+        System.out.println("\nTesting Dinosaur constructors.");
+        Dinosaur d = new Dinosaur();
+        assertEquals(d._name, null);
+        assertEquals(d._isCarnivore, false);
+        Dinosaur d2 = new Dinosaur("Larry");
+        assertEquals(d2._name, "Larry");
+        assertEquals(d2._isCarnivore, false);
+        Dinosaur d3 = new Dinosaur("Rex", true);
+        assertEquals(d3._name, "Rex");
+        assertEquals(d3._isCarnivore, true);
+    }
+
+    @Test
+    public void testChapter4_2_velociraptor() {
+        System.out.println("\nTesting Velociraptors");
+        Velociraptor v = new Velociraptor("Sam");
+        assertEquals(v._name, "Sam");
+        assertEquals(v._isCarnivore, true);
+    }
 }
